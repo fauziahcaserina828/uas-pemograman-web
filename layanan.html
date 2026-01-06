@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layanan Publik</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<body>
+  <!-- Quick Links tetap sama -->
+  <div class="quick-links">
+    <a href="index.html"><span>🏠</span>Home</a>
+    <a href="edukasi.html"><span>📚</span>Edukasi</a>
+    <a href="layanan.html"><span>🩺</span>Layanan</a>
+    <a href="data.html"><span>📊</span>Data</a>
+    <a href="kontak.html"><span>✉️</span>Kontak</a>
+  </div>
+
+<div class="container">
+  <h1>Layanan Kesehatan & Edukasi Stunting</h1>
+
+  <!-- Layanan Konsultasi -->
+  <section>
+    <h2>Konsultasi & Pengaduan</h2>
+    <p>
+      Layanan ini bertujuan untuk memberikan ruang bagi masyarakat
+      dalam menyampaikan pertanyaan, keluhan, atau konsultasi
+      terkait gizi anak dan pencegahan stunting.
+      Pesan yang dikirim bersifat edukatif dan non-darurat.
+    </p>
+
+    <form id="layananForm">
+      <label>Nama Lengkap</label><br>
+      <input type="text" placeholder="Masukkan nama Anda" required><br><br>
+
+      <label>Pesan atau Pertanyaan</label><br>
+      <textarea placeholder="Tuliskan pesan Anda di sini" rows="4" required></textarea><br><br>
+
+      <button type="submit">Kirim Pesan</button>
+    </form>
+
+    <p id="notif"></p>
+  </section>
+
+  <hr>
+
+  <!-- Layanan Cek Risiko -->
+<section>
+  <h2>Cek Risiko Stunting (Edukasi)</h2>
+  <p>
+    Fitur ini digunakan sebagai alat edukasi awal untuk memahami
+    pertumbuhan anak berdasarkan <strong>umur, tinggi badan, dan berat badan</strong>.
+    Hasil yang ditampilkan <strong>bukan diagnosis medis</strong>.
+  </p>
+
+  <label>Umur Anak (bulan)</label><br>
+  <input type="number" id="umur" placeholder="Contoh: 24" min="0"><br><br>
+
+  <label>Tinggi Badan Anak (cm)</label><br>
+  <input type="number" id="tinggi" placeholder="Contoh: 85" min="0"><br><br>
+
+  <label>Berat Badan Anak (kg)</label><br>
+  <input type="number" id="berat" placeholder="Contoh: 11" min="0" step="0.1"><br><br>
+
+  <button type="button" onclick="cekStunting()">Cek Risiko</button>
+
+  <p id="hasilStunting"></p>
+
+  <!-- Diagram Lingkaran -->
+  <div id="diagram" style="display:none; width:120px; margin-top:15px;">
+    <svg viewBox="0 0 36 36">
+      <path
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        stroke="#eee"
+        stroke-width="3"
+      />
+      <path id="lingkaranStatus"
+        fill="none"
+        stroke-width="3"
+        stroke-dasharray="100, 100"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <text x="18" y="20.35" text-anchor="middle" font-size="5">
+        Status
+      </text>
+    </svg>
+  </div>
+</section>

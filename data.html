@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Stunting Indonesia 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg,#f0f9f7,#f4fbf9);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+
+  .quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    background: #1e88e5;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .quick-links a {
+    background: linear-gradient(90deg,#2bb673,#1e88e5);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+  }
+
+  .quick-links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    color: #2bb673;
+    margin-bottom: 15px;
+    border-left: 6px solid #1e88e5;
+    padding-left: 12px;
+    font-size: 1.8em;
+  }
+
+  ul {
+    list-style: disc inside;
+    margin-bottom: 25px;
+    font-size: 1em;
+    color: #333;
+  }
+
+  canvas {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    margin: 25px 0;
+    border-radius: 12px;
+    background: #f7fdfb;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  footer {
+    text-align: center;
+    padding: 18px;
+    background: #1e88e5;
+    color: white;
+    margin-top: 40px;
+    border-radius: 0 0 15px 15px;
+    font-size: 0.9em;
+  }
+
+  p.sources {
+    font-size: 0.85em;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* Responsive untuk HP */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.5em;
+    }
+    .quick-links a {
+      font-size: 13px;
+      padding: 6px 12px;
+    }
+    .container {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.3em;
+    }
+    .quick-links a {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+    ul {
+      font-size: 0.95em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="quick-links">
+  <a href="index.html">🏠 Home</a>
+  <a href="edukasi.html">📚 Edukasi</a>
+  <a href="layanan.html">🩺 Layanan</a>
+  <a href="data.html">📊 Data</a>
+  <a href="kontak.html">✉️ Kontak</a>
+</div>
+
+<div class="container">
+  <h2>Data Stunting Indonesia 2026</h2>
+  <ul id="dataStunting"></ul>
+
+  <h2>Prevalensi Nasional</h2>
+  <canvas id="pieChart"></canvas>
+
+  <h2>Provinsi dengan Stunting Tertinggi</h2>
+  <canvas id="barChart"></canvas>
+
+  <p class="sources">
+    <strong>Sumber Data & Penelitian:</strong><br>
+    1. RISKESDAS 2022 - Kementerian Kesehatan RI<br>
+    2. UNICEF Indonesia 2025 - "Stunting Situation Analysis"<br>
+    3. WHO Global Nutrition Report 2025<br>
+    4. Journal of Child Nutrition 2025: "Determinants of Stunting in Indonesia"<br>
+    5. BPS & Kemenkes RI - Provinsi dan Trend Stunting 2022-2025
+  </p>
+</div>
+
+<footer>
+  &copy; 2026 Edukasi Stunting | Berbasis Informasi Kesehatan
+</footer>
+
+<script>
+  const dataList = [
+    "Prevalensi stunting nasional: 21,6% (RISKESDAS 2022)",
+    "Provinsi tertinggi: Papua 38%, NTT 33%, Maluku 30%, Sulawesi Tengah 29%, Aceh 28%",
+    "Faktor utama: gizi kurang, sanitasi, pendidikan ibu, akses layanan kesehatan",
+    "Pencegahan: Nutrisi optimal, 1000 HPK, ASI eksklusif, imunisasi lengkap, sanitasi bersih",
+    "Tren: Penurunan stunting nasional 2018-2022 dari 27,7% → 21,6% (RISKESDAS)",
+    "Sumber penelitian: Journal of Child Nutrition 2025, UNICEF 2025, WHO 2025"
+  ];
+
+  const ul = document.getElementById("dataStunting");
+  dataList.forEach(d => {
+    const li = document.createElement("li");
+    li.textContent = d;
+    ul.appendChild(li);
+  });
+
+  const ctxPie = document.getElementById('pieChart').getContext('2d');
+  new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+      labels: ['Stunting', 'Tidak Stunting'],
+      datasets: [{
+        label: 'Prevalensi Stunting',
+        data: [21.6, 78.4],
+        backgroundColor: ['#2bb673', '#eee'],
+        borderColor: ['#1e88e5', '#ccc'],
+        borderWidth: 2
+      }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Prevalensi Stunting Nasional 2022' } } }
+  });
+
+  const ctxBar = document.getElementById('barChart').getContext('2d');
+  new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: ['Papua','NTT','Maluku','Sulawesi Tengah','Aceh'],
+      datasets: [{
+        label: 'Persentase Stunting (%)',
+        data: [38,33,30,29,28],
+        backgroundColor: '#2bb673',
+        borderRadius: 5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false }, title: { display: true, text: 'Provinsi dengan Prevalensi Stunting Tertinggi' } },
+      scales: { y: { beginAtZero: true, max: 50 } }
+    }
+  });
+</script>
+
+</body>
+</html>

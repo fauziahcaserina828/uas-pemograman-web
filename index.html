@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Edukasi Stunting</title>
+  <style>
+    /* Reset & dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4fbf9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Tombol valbar cepat (Quick Links) */
+    .quick-links {
+      background: linear-gradient(90deg, #4caf50, #2196f3);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 0 0 10px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .quick-links a {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .quick-links a:hover {
+      background: white;
+      color: #2196f3;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .quick-links a span {
+      font-size: 16px;
+    }
+
+    /* Navbar utama */
+    nav {
+      background: linear-gradient(90deg, #1e88e5, #2bb673);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Container utama */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #1e88e5;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #2bb673;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      border-left: 5px solid #1e88e5;
+      padding-left: 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #1e88e5;
+      color: white;
+      margin-top: 40px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .quick-links, nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .quick-links a {
+        width: 80%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol Quick Links Elegan di atas navbar -->
+  <div class="quick-links">
+    <a href="index.html"><span>🏠</span>Home</a>
+    <a href="edukasi.html"><span>📚</span>Edukasi</a>
+    <a href="layanan.html"><span>🩺</span>Layanan</a>
+    <a href="data.html"><span>📊</span>Data</a>
+    <a href="kontak.html"><span>✉️</span>Kontak</a>
+  </div>
+
+
+  <!-- Container utama -->
+  <div class="container">
+    <h1>Selamat Datang di Edukasi Stunting</h1>
+    <p>
+      Website ini menyediakan informasi edukatif mengenai pertumbuhan anak, gizi, dan pencegahan stunting.
+      Gunakan menu di atas untuk menjelajahi informasi lengkap pada halaman Edukasi, Layanan, Kontak, atau Data.
+    </p>
+
+    <h2>Misi Kami</h2>
+    <p>
+      Memberikan informasi yang akurat dan mudah dipahami bagi orang tua dan masyarakat tentang pentingnya gizi dan kesehatan anak.  
+      Edukasi ini bertujuan meningkatkan kesadaran pencegahan stunting sejak dini.
+    </p>
+
+    <h2>Informasi Cepat</h2>
+    <p>
+      Menu Edukasi berisi tips gizi, perkembangan anak, dan tanda-tanda stunting.  
+      Menu Layanan berisi fasilitas kesehatan terkait anak.  
+      Menu Kontak menyediakan informasi kontak untuk pertanyaan atau saran.  
+      Menu Data menampilkan data terkait layanan kesehatan dan statistik stunting.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2026 Edukasi Stunting | Berbasis Informasi Kesehatan
+  </footer>
+
+</body>
+</html>
